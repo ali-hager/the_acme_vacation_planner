@@ -1,4 +1,4 @@
-const { client, createTables, createUser, createPlace, fetchUsers, fetchPlaces, createVacation, fetchVacations } = require("./db");
+const { client, createTables, createUser, createPlace, fetchUsers, fetchPlaces, createVacation, fetchVacations, destoryVacation } = require("./db");
 
 const init = async () => {
   console.log("connecting to database");
@@ -24,6 +24,10 @@ const init = async () => {
     createVacation({ user_id: moe.id, place_id: france.id, travel_date: '04/28/2024'}),
     createVacation({ user_id: jennifer.id, place_id: london.id, travel_date: '07/05/2024'})
   ]);
+  console.log(await fetchVacations());
+
+  await destoryVacation(vacations[0]);
+
   console.log(await fetchVacations());
 
 };
