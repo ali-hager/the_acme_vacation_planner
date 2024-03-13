@@ -92,6 +92,7 @@ const destoryVacation = async({ id, user_id })=>{
   WHERE id = $1 AND user_id = $2
   `;
   const response = await client.query(SQL, [id, user_id]);
+
 };
 
 
